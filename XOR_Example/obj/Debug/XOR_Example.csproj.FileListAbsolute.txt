@@ -1,0 +1,7 @@
+c:\users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\XOR_Example\bin\Debug\XOR_Example.exe.config
+c:\users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\XOR_Example\obj\Debug\XOR_Example.csprojResolveAssemblyReference.cache
+c:\users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\XOR_Example\bin\Debug\XOR_Example.exe
+c:\users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\XOR_Example\bin\Debug\XOR_Example.pdb
+c:\users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\XOR_Example\bin\Debug\encog-core-cs.dll
+c:\users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\XOR_Example\obj\Debug\XOR_Example.exe
+c:\users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\XOR_Example\obj\Debug\XOR_Example.pdb
