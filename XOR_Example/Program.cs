@@ -30,6 +30,9 @@ namespace XOR_Example
                     case "COMPUTE":
                         nn.Compute();
                         break;
+                    case "SHOW":
+                        nn.Display();
+                        break;
                     default:
                         Console.WriteLine("Sorry I didn't understand. Please choose one of the following commands:");
                         PrintCommands();

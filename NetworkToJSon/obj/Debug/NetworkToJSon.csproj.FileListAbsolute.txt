@@ -1,0 +1,14 @@
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Resources\angular.js
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Resources\d3.js
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Resources\fonts.css
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Resources\index.html
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Resources\script.js
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Resources\style.css
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Resources\tachyons.css
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\NetworkToJSon.dll
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\NetworkToJSon.pdb
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\encog-core-cs.dll
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Newtonsoft.Json.dll
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\bin\Debug\Newtonsoft.Json.xml
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\obj\Debug\NetworkToJSon.dll
+C:\Users\miche\onedrive\dokumente\visual studio 2015\Projects\XOR_Example\NetworkToJSon\obj\Debug\NetworkToJSon.pdb

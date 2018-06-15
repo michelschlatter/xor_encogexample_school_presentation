@@ -5,6 +5,8 @@ using Encog.ML.Train;
 using Encog.Neural.Networks;
 using Encog.Neural.Networks.Layers;
 using Encog.Neural.Networks.Training.Propagation.Resilient;
+using NetworkToJSon;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,19 +54,26 @@ namespace XOR_Example
             int epoch = 1;
 
             DateTime start = DateTime.Now;
-            while (train.Error > 0.01 || epoch == 1)
+            while (train.Error > 0.0000001 || epoch < 1000)
             {
                 train.Iteration();
                 Console.WriteLine(@"Iteration #" + epoch + @" Error:" + train.Error);
                 epoch++;
             }
+
             DateTime end = DateTime.Now;
             Console.WriteLine("------------------TRAINING FINISHED----------------");
             Console.WriteLine("Training duration:" + (end-start).TotalMilliseconds + "ms");
             Console.WriteLine();
         }
 
- 
+        public void Display()
+        {
+            if (network != null)
+            {
+                NetworkToJson.ToJson(network);
+            }
+        }
 
         public void Compute() 
         {
@@ -94,9 +103,12 @@ namespace XOR_Example
             network.AddLayer(new BasicLayer(null, true, 2));
             network.AddLayer(new BasicLayer(new ActivationSigmoid(), true, 20));
             network.AddLayer(new BasicLayer(new ActivationSigmoid(), true, 10));
+            network.AddLayer(new BasicLayer(new ActivationSigmoid(), true, 5));
             network.AddLayer(new BasicLayer(new ActivationSigmoid(), false, 1));
             network.Structure.FinalizeStructure();
             network.Reset();
+           
+            JsonSerializerSettings settings = new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
             return network;
         }
 
