@@ -38,8 +38,17 @@ app.controller('MainCtrl', function ($scope, $interval, $window, $q) {
 
         //construct input layer
         var newFirstLayer = [];
-        for (var i = 0; i < vm.inputLayer.neurons; i++) {// check if is bias (first of layer is bias!)
-            var newTempLayer = { "label": "i" + i, "layer": 1, weights: [22, 21] }; //jedes Neuron hat mehrere Weights
+        if (vm.inputLayer.hasBias) {
+            vm.inputLayer.neurons++;
+        }
+        for (var i = 0; i < vm.inputLayer.neurons; i++) {
+            var lblText = '';
+            if (vm.inputLayer.hasBias && i == 0) {
+                lblText = 'bias';
+            } else {
+                lblText = "i" + i;
+            }
+            var newTempLayer = { "label": lblText , "layer": 1, weights: [22, 21] }; //jedes Neuron hat mehrere Weights
             newFirstLayer.push(newTempLayer);
         }
 
@@ -57,8 +66,17 @@ app.controller('MainCtrl', function ($scope, $interval, $window, $q) {
 
         //construct output layer
         var newOutputLayer = [];
+        if (vm.outputLayer.hasBias) {
+            vm.outputLayer.neurons++;
+        }
         for (var i = 0; i < vm.outputLayer.neurons; i++) {
-            var newTempLayer = { "label": "o" + i, "layer": vm.hiddenLayers.length + 2 };
+            var lblText = '';
+            if (vm.outputLayer.hasBias && i == 0) {
+                lblText = 'bias';
+            } else {
+                lblText = "i" + i;
+            }
+            var newTempLayer = { "label": lblText, "layer": vm.hiddenLayers.length + 2 };
             newOutputLayer.push(newTempLayer);
         }
 
@@ -70,6 +88,10 @@ app.controller('MainCtrl', function ($scope, $interval, $window, $q) {
 
     }
 
+    // Define the div for the tooltip
+    var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
     function drawGraph(networkGraph, svg) {
         var graph = networkGraph;
@@ -102,6 +124,7 @@ app.controller('MainCtrl', function ($scope, $interval, $window, $q) {
         // autogenerate links
         var links = [];
         var biasNeuronsIdxList = getTargetNeuronsBias(nodes);
+        var c = 0;
         nodes.map(function (d, i) {
             for (var n in nodes) {
                 
@@ -110,7 +133,8 @@ app.controller('MainCtrl', function ($scope, $interval, $window, $q) {
                     var weight = 0;
 
                     if (biasNeuronsIdxList.indexOf(parseInt(n)) == -1) { // check if is bias neuron
-                        links.push({ "source": parseInt(i), "target": parseInt(n), "value": 1, weight: weight }) // jeder link hat ein gewicht.
+                        links.push({ "source": parseInt(i), "target": parseInt(n), "value": 1, weight: data.weights[c] }) // jeder link hat ein gewicht.
+                        c++;
                     } else {
                         nodes[n].label = 'Bias'
                     }
@@ -127,7 +151,21 @@ app.controller('MainCtrl', function ($scope, $interval, $window, $q) {
 		.attr("y1", function (d) { return nodes[d.source].y; })
 		.attr("x2", function (d) { return nodes[d.target].x; })
 		.attr("y2", function (d) { return nodes[d.target].y; })
-		.style("stroke-width", function (d) { return Math.sqrt(d.value); });
+        .attr('weight', function (d) { return d.weight; })
+		.style("stroke-width", function (d) { return Math.sqrt(d.value); })
+        .on("mouseover", function (d) {
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+            div.html(d.weight.toString().substring(0,7))
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+        })
+    .on("mouseout", function (d) {
+        div.transition()
+            .duration(500)
+            .style("opacity", 0);
+    });
 
         // draw nodes
         var node = svg.selectAll(".node")

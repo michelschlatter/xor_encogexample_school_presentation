@@ -54,7 +54,7 @@ namespace XOR_Example
             int epoch = 1;
 
             DateTime start = DateTime.Now;
-            while (train.Error > 0.0000001 || epoch < 1000)
+            while (train.Error > 0.01 || epoch < 1000)
             {
                 train.Iteration();
                 Console.WriteLine(@"Iteration #" + epoch + @" Error:" + train.Error);
